@@ -1,0 +1,34 @@
+create table motorista(
+ 
+	id_motorista serial primary key,	
+	nome varchar(100),
+	sobrenome varchar(100)
+
+);
+
+create table endereco(
+	id_endereco serial primary key,
+	endereco varchar(100),
+	numero int,
+	bairro varchar(100),
+	cidade varchar(100),
+	estado varchar(100),
+	id_endereco_motorista serial,
+	Constraint idmotorista_fk Foreign key(id_endereco_motorista) References motorista (id_motorista)
+
+);
+
+create table caminhao(
+    id_caminhao serial primary key,
+	marca varchar(100),
+	modelo varchar(100),
+	placa varchar(100),
+	eixos int,
+	id_caminhao_motorista serial,
+	Constraint id_caimnhao_motorista_fk foreign key(id_caminhao_motorista) references motorista(id_motorista)
+	
+
+)
+
+
+select *from motorista, endereco, caminhao
